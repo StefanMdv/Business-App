@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>
+            Business-App
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="mat-drawer-container" autosize>
+   
+    <div class="commands">
+        <button mat-raised-button color="primary" routerLink="/signup">
+            Signup
+        </button>
+        
+        <button mat-raised-button color="primary" routerLink="/login">
+            Login
+        </button>
+        
+        <button mat-raised-button color="primary" routerLink="/dashboard">
+            Dashboard
+        </button>
+        
+        <div class="message"  *ngIf="(afAuth.user | async)">
+            You're logged in
+        
+            <br>
+            <button mat-raised-button color="primary" (click)="logout()">
+                Log out
+            </button>
+        </div>
+        <div class="message" *ngIf="!(afAuth.user | async)">
+            You're not logged in
+        </div>
+    </div>
+   
+</mat-drawer-container>
